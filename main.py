@@ -38,49 +38,50 @@ def cat(api_key):
     genz1.close()
     while True:
         inn=input("\nEnter your choice: ")
-        if inn=='1':
-            choice=catlist[0]
-            dis(choice)
-            r=requests.get(f'https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey={api_key}')
-            break
-        elif inn=='2':
-            choice=catlist[1]
-            dis(choice)
-            r=requests.get(f'https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey={api_key}')
-            break
-        elif inn=='3':
-            choice=catlist[2]
-            dis(choice)
-            r=requests.get(f'https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey={api_key}')
-            break
-        elif inn=='4':
-            choice=catlist[3]
-            dis(choice)
-            r=requests.get(f'https://newsapi.org/v2/top-headlines?country=in&apiKey={api_key}')
-            break
-        elif inn=='5':
-            choice=catlist[4]
-            dis(choice)
-            r=requests.get(f'https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey={api_key}')
-            break
-        elif inn=='6':
-            choice=catlist[5]
-            dis(choice)
-            r=requests.get(f'https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey={api_key}')
-            break
-        elif inn=='7':
-            choice=catlist[6]
-            dis(choice)
-            r=requests.get(f'https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey={api_key}')
-            break
-        elif inn=='8':
-            choice=catlist[7]
-            dis(choice)
-            r=requests.get(f'https://newsapi.org/v2/top-headlines?sources=the-times-of-india&apiKey={api_key}')
-            break
-        else:
-            print("\nWrong choice, Please try again!")
-            continue
+        match inn:
+            case '1':
+                choice=catlist[0]
+                dis(choice)
+                r=requests.get(f'https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey={api_key}')
+                break
+            case '2':
+                choice=catlist[1]
+                dis(choice)
+                r=requests.get(f'https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey={api_key}')
+                break
+            case '3':
+                choice=catlist[2]
+                dis(choice)
+                r=requests.get(f'https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey={api_key}')
+                break
+            case '4':
+                choice=catlist[3]
+                dis(choice)
+                r=requests.get(f'https://newsapi.org/v2/top-headlines?country=in&apiKey={api_key}')
+                break
+            case '5':
+                choice=catlist[4]
+                dis(choice)
+                r=requests.get(f'https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey={api_key}')
+                break
+            case '6':
+                choice=catlist[5]
+                dis(choice)
+                r=requests.get(f'https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey={api_key}')
+                break
+            case '7':
+                choice=catlist[6]
+                dis(choice)
+                r=requests.get(f'https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey={api_key}')
+                break
+            case '8':
+                choice=catlist[7]
+                dis(choice)
+                r=requests.get(f'https://newsapi.org/v2/top-headlines?sources=the-times-of-india&apiKey={api_key}')
+                break
+            case default:
+                print("\nWrong choice, Please try again!")
+                continue
 
     return r.json(),choice; 
 
